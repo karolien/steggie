@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="steggie.ico">
+  <title>Steggie - Steganography Calculator</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+        <div class="inner cover">
+          <div class="cover-heading">
+            <h1><img src="steggie.ico" alt="logo" />STEGGIE</h1>
+          </div>
+          <div class="alert alert-info">
+            <strong>Hey there!</strong> Type your message into the textbox below (max 225 chars). Select an image from your computer and press 'ENCRYPT' to hide your message. You can then right-click and save the altered image. To extract a message from an image, upload it and use the 'DECRYPT' button. Your hidden message will be displayed in the same textbox below!
+          </div>
+          <div class="alert alert-danger" id="textError" style="display:none">
+          </div>
+          <p class="lead">
+            <button id="encryptbtn" type="button" class="btn btn-primary btn-sm">ENCRYPT</button>
+            <button id="decryptbtn" type="button" class="btn btn-primary btn-sm">DECRYPT</button>
+          </p>
+          <p class="lead"><textarea style="resize:none" rows="5" cols="50" id="message" maxlength="255" pattern="/^[ A-Za-z0-9()/"></textarea></p>
+          <p class="lead">
+            <label class="btn btn-lg btn-primary">
+                  SELECT IMAGE <input type="file" style="display: none;" accept="image/*">
+            </label>
+          </p>
+          <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="mastfoot">
+          <div class="inner">
+            <p>Steganography calculator, by Karolien Koorts</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
