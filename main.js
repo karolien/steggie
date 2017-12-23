@@ -30,6 +30,9 @@ function encrypt() {
         var message = messageText.value;
         var messageLength = message.length;
         var pixelsNeeded = (messageLength + 1) * 8; // max 255 characters
+        if(pixelsNeeded > canvas.height*canvas.width){
+          throw "Image too small";
+        }
         var binaryMessage = convert(message);
         var binaryLength = messageLength.toString(2);
         binaryLength = new Array(9 - binaryLength.length).join('0') + binaryLength;
