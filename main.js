@@ -33,9 +33,9 @@ function encrypt() {
         if(pixelsNeeded > canvas.height*canvas.width){
           throw "Image too small";
         }
-        var binaryMessage = convert(message);
+        var binaryMessage = ASCIItoBinary(message);
         var binaryLength = messageLength.toString(2);
-        binaryLength = new Array(9 - binaryLength.length).join('0') + binaryLength;
+        binaryLength = new Array(9 - binaryLength.length).join('0') + binaryLength; // pad to eight bits
         binaryMessage = binaryLength + binaryMessage;
         var currentBit = 0;
         var pixelOdd = false;
@@ -49,14 +49,6 @@ function encrypt() {
             data[i] = --data[i];
             }
             currentBit++;
-        }
-        var binaryLength = '';
-        for (var i = 0; i < 32; i += 4) {
-            if (isOdd(data[i])) {
-            binaryLength += '1';
-            } else {
-            binaryLength += '0';
-            }
         }
         ctx.putImageData(imageData, 0, 0);
         messageText.value = '';
@@ -90,12 +82,12 @@ function decrypt() {
   }
   var decryptedMessage = '';
   for (var k = 0; k < binaryMessage.length; k += 8) {
-    decryptedMessage += binarytoString(binaryMessage.slice(k, k + 8));
+    decryptedMessage += binarytoASCII(binaryMessage.slice(k, k + 8));
   }
   messageText.value = decryptedMessage;
 }
 
-function convert(message) {
+function ASCIItoBinary(message) {
   var output = '';
   for (i = 0; i < message.length; i++) {
     var binary = message[i].charCodeAt(0).toString(2);
@@ -105,7 +97,7 @@ function convert(message) {
   return output;
 }
 
-function binarytoString(str) {
+function binarytoASCII(str) {
   return str.split(/\s/).map(function(val) {
     return String.fromCharCode(parseInt(val, 2));
   }).join("");
