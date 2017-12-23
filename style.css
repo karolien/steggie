@@ -148,7 +148,7 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 42rem;
+    width: 84rem;
   }
 }
 
@@ -160,4 +160,8 @@ body {
 
 #canvas{
   margin-bottom: 50px;
+}
+
+#message, .popover{
+  color: black;
 }

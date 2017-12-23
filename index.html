@@ -8,8 +8,7 @@
   <title>Steggie - Steganography Calculator</title>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Custom styles for this template -->
   <link href="style.css" rel="stylesheet">
 </head>
@@ -37,6 +36,9 @@
           <p class="lead">
             <button id="encryptbtn" type="button" class="btn btn-primary btn-sm">ENCRYPT</button>
             <button id="decryptbtn" type="button" class="btn btn-primary btn-sm">DECRYPT</button>
+            <button type="button" id="helpBtn" class="btn btn-default btn-sm" title="Not working?" data-toggle="popover" data-trigger="focus" data-content="This encryption method currently only works with JPG images. Make sure no compression is applied to the image after it has been encrypted, as the message may be lost.">
+              <span class="glyphicon glyphicon-question-sign"></span> Issues
+            </button>
           </p>
           <p class="lead"><textarea style="resize:none" rows="5" cols="50" id="message" maxlength="255" pattern="/^[ A-Za-z0-9()/"></textarea></p>
           <p class="lead">
@@ -46,7 +48,6 @@
           </p>
           <canvas id="canvas"></canvas>
         </div>
-
         <div class="mastfoot">
           <div class="inner">
             <p>Steganography calculator, by Karolien Koorts</p>
@@ -58,10 +59,8 @@
     </div>
 
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
 </body>
 

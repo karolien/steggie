@@ -132,6 +132,10 @@ function imageIsLoaded(e) {
   };
 };
 
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+
 
 //TODO
 // $("#message").keydown(function(e)
