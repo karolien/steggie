@@ -29,6 +29,10 @@
             <strong>Hey there!</strong> Type your message into the textbox below (max 225 chars). Select an image from your computer and press 'ENCRYPT' to hide your message. You can then right-click and save the altered image. To extract a message from an image, upload it and use the 'DECRYPT' button. Your hidden message will be displayed in the same textbox below!
           </div>
           <div class="alert alert-danger" id="textError" style="display:none">
+            <strong>Error!</strong> Please restrict message to allowed characters and ensure an image is uploaded prior to encrypting.
+          </div>
+          <div class="alert alert-success" id="textSuccess" style="display:none">
+            <strong>Success!</strong> Your message has been encrypted.
           </div>
           <p class="lead">
             <button id="encryptbtn" type="button" class="btn btn-primary btn-sm">ENCRYPT</button>

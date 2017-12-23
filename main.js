@@ -1,5 +1,6 @@
 var messageText = document.getElementById("message");
 var errorText = document.getElementById("textError");
+var successText = document.getElementById("textSuccess");
 var canvas;
 var ctx;
 var imageData;
@@ -25,6 +26,7 @@ decryptbtn.addEventListener('click', decrypt);
 function encrypt() {
     try{
         errorText.style.display = "none";
+        successText.style.display = "none";
         var message = messageText.value;
         var messageLength = message.length;
         var pixelsNeeded = (messageLength + 1) * 8; // max 255 characters
@@ -55,15 +57,17 @@ function encrypt() {
         }
         ctx.putImageData(imageData, 0, 0);
         messageText.value = '';
+        successText.style.display = "block";
     }
     catch(e){
         errorText.style.display = "block";
-        errorText.innerHTML = "<strong>Error!</strong> Please restrict message to allowed characters.";
     }
   
 }
 
 function decrypt() {
+  errorText.style.display = "none";
+  successText.style.display = "none";
   var binaryLength = '';
   for (var i = 0; i < 32; i += 4) {
     if (isOdd(data[i])) {
@@ -119,6 +123,7 @@ $(function() {
 });
 
 function imageIsLoaded(e) {
+  successText.style.display = "none";
   var img = new Image();
   img.src = e.target.result;
   img.crossOrigin = "Anonymous"
@@ -127,11 +132,13 @@ function imageIsLoaded(e) {
   };
 };
 
-$("#message").keydown(function(e)
-{
-  var allowed = /^[\x00-\x7F]*$/; //regex
-  var value = String.fromCharCode(e.keyCode); //get the charcode and convert to char
-  if (!value.match(allowed)) { 
-     return false;
-  }       
-});
+
+//TODO
+// $("#message").keydown(function(e)
+// {
+//   var allowed = /^[\x00-\x7F]*$/; //regex
+//   var value = String.fromCharCode(e.keyCode); //get the charcode and convert to char
+//   if (!value.match(allowed)) { 
+//      return false;
+//   }       
+// });
