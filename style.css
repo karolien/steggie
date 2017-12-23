@@ -52,12 +52,6 @@ body {
   margin-left: auto;
 }
 
-/* Padding for spacing */
-.inner {
-  padding: 2rem;
-}
-
-
 /*
  * Header
  */
@@ -162,4 +156,8 @@ body {
   width: 100px;
   height: 100px;
   vertical-align: text-bottom;
+}
+
+#canvas{
+  margin-bottom: 50px;
 }
