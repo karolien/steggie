@@ -25,7 +25,7 @@
             <h1><img src="steggie.ico" alt="logo" />STEGGIE</h1>
           </div>
           <div class="alert alert-info">
-            <strong>Hey there!</strong> Type your message into the textbox below (max 255 chars). Select an image from your computer and press 'ENCRYPT' to hide your message. You can then right-click and save the altered image. To extract a message from an image, upload it and use the 'DECRYPT' button. Your hidden message will be displayed in the same textbox below!
+            <strong>Hey there!</strong> Type your message into the textbox below (max 255 chars). Select an image from your computer and press 'ENCRYPT' to hide your message. You can then save the altered image by using the download button. To extract a message from an image, upload it and use the 'DECRYPT' button. Your hidden message will be displayed in the same textbox below!
           </div>
           <div class="alert alert-danger" id="textError" style="display:none">
             <strong>Error!</strong> Please restrict message to allowed characters, ensure an image is uploaded prior to encrypting, and make sure your image is large enough to accommodate the message.
@@ -45,6 +45,9 @@
             <label class="btn btn-lg btn-primary">
                   SELECT IMAGE <input type="file" style="display: none;" accept="image/jpeg">
             </label>
+            <button id="downloadbtn" type="button" class="btn btn-secondary btn-lg">
+              <span class="glyphicon glyphicon-download-alt"></span>
+            </button>            
           </p>
           <canvas id="canvas"></canvas>
         </div>

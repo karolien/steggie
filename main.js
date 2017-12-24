@@ -22,6 +22,8 @@ var encryptbtn = document.getElementById('encryptbtn');
 encryptbtn.addEventListener('click', encrypt);
 var decryptbtn = document.getElementById('decryptbtn');
 decryptbtn.addEventListener('click', decrypt);
+var downloadtbtn = document.getElementById('downloadbtn');
+downloadtbtn.addEventListener('click', saveImage);
 
 function encrypt() {
     try{
@@ -130,6 +132,11 @@ function imageIsLoaded(e) {
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
+
+function saveImage(){
+  var imageToSave = canvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream");
+  window.location.href=imageToSave;
+}
 
 
 //TODO
