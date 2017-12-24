@@ -134,8 +134,8 @@ $(document).ready(function(){
 });
 
 function saveImage(){
-  var imageToSave = canvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream");
-  window.location.href=imageToSave;
+  var imageToSave = canvas.toDataURL("image/jpg");
+  downloadtbtn.href = imageToSave;
 }
 
 
