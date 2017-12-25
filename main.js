@@ -31,13 +31,13 @@ function encrypt() {
         successText.style.display = "none";
         var message = messageText.value;
         var messageLength = message.length;
-        var pixelsNeeded = (messageLength + 1) * 8; // max 255 characters
+        var pixelsNeeded = (messageLength* 8) + 9; // max 512 characters
         if(pixelsNeeded > canvas.height*canvas.width){
           throw "Image too small";
         }
         var binaryMessage = ASCIItoBinary(message);
         var binaryLength = messageLength.toString(2);
-        binaryLength = new Array(9 - binaryLength.length).join('0') + binaryLength; // pad to eight bits
+        binaryLength = new Array(10 - binaryLength.length).join('0') + binaryLength; // pad to nine bits
         binaryMessage = binaryLength + binaryMessage;
         var currentBit = 0;
         var pixelOdd = false;
@@ -66,7 +66,7 @@ function decrypt() {
   errorText.style.display = "none";
   successText.style.display = "none";
   var binaryLength = '';
-  for (var i = 0; i < 32; i += 4) {
+  for (var i = 0; i < 36; i += 4) {
     if (isOdd(data[i])) {
       binaryLength += '1';
     } else {
@@ -75,7 +75,7 @@ function decrypt() {
   }
   var pixelsNeeded = parseInt(binaryLength, 2) * 8;
   var binaryMessage = '';
-  for (var i = 32; i < pixelsNeeded * 4 + 32; i += 4) {
+  for (var i = 36; i < pixelsNeeded * 4 + 36; i += 4) {
     if (isOdd(data[i])) {
       binaryMessage += '1';
     } else {
